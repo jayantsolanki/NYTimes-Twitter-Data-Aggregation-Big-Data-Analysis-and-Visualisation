@@ -5,7 +5,7 @@
 
 ### Building a Big-Data production using the power of Python and Hadoop
 * We performed Data Aggregation, Big Data Analysis and Visualization which involves data aggregation from API exposed by NYTimes website, then we applied classical big data analytic
-method of MapReduce to the unstructured data collected, usually text corpuses to build a visualised data product showing the trend words in the searched topic from NYTimes 
+method of MapReduce for perfroming word count on the unstructured data collected, usually text corpuses to build a visualised data product showing most trending words in the searched topic from NYTimes, using D3.js.
 ## Documentation
 ***
 Report and documentation can be found on this [Report](https://github.com/jayantsolanki/NYTimes-Data-Aggregation-Big-Data-Analysis-and-Visualisation/tree/master/report) link
