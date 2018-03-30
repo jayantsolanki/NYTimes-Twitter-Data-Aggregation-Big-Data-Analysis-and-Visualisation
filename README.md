@@ -8,7 +8,7 @@
 method of MapReduce to the unstructured data collected, usually text corpuses to build a visualised data product showing the trend words in the searched topic from NYTimes 
 ## Documentation
 ***
-Report and documentation can be found on this [Report](https://github.com/jayantsolanki/CDC-FLU-Data-Collection-and-Exploratory-Data-Analysis/tree/master/report) link
+Report and documentation can be found on this [Report](https://github.com/jayantsolanki/NYTimes-Data-Aggregation-Big-Data-Analysis-and-Visualisation/tree/master/report) link
 
 ## Folder Tree
 ***
