@@ -29,6 +29,7 @@ for line in sys.stdin:
                          #   and return a list of keys
     for key in keys:     #a for loop through the list of keys
         value = 1
+        #some filters applied
         key=key.strip('"')
         key=key.strip('.')
         key=key.strip('“')
