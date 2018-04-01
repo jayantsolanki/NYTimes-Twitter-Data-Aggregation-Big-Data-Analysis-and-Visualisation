@@ -5,11 +5,11 @@ import re
 import string
 from datetime import date
 from tweepy import OAuthHandler
-from nltk.corpus import stopwords
-from nltk.tokenize import TweetTokenizer
-from nltk.stem.wordnet import WordNetLemmatizer
-sw = stopwords.words('english')
-lemma = WordNetLemmatizer()
+# from nltk.corpus import stopwords
+# from nltk.tokenize import TweetTokenizer
+# from nltk.stem.wordnet import WordNetLemmatizer
+# sw = stopwords.words('english')
+# lemma = WordNetLemmatizer()
 
 class TwitterDataCollecion(object):
     
@@ -52,15 +52,15 @@ class TwitterDataCollecion(object):
     
     
     def clean_text_and_tokenize(self,line):
-        line   = re.sub(r'\$\w*', '', line)
-        line   = re.sub(r'http?:.*$', '', line)
-        line   = re.sub(r'https?:.*$', '', line)
-        line   = re.sub(r'pic?.*\/\w*', '', line)
-        line   = re.sub(r'[' + string.punctuation + ']+', ' ', line)  # Remove puncutations like 's
+        # line   = re.sub(r'\$\w*', '', line)
+        # line   = re.sub(r'http?:.*$', '', line)
+        # line   = re.sub(r'https?:.*$', '', line)
+        # line   = re.sub(r'pic?.*\/\w*', '', line)
+        # line   = re.sub(r'[' + string.punctuation + ']+', ' ', line)  # Remove puncutations like 's
         
         tokens = TweetTokenizer(strip_handles=True, reduce_len=True).tokenize(line)
-        tokens = [w.lower() for w in tokens if w not in sw and len(w) > 2 and w.isalpha()]
-        tokens = [lemma.lemmatize(word) for word in tokens]
+        # tokens = [w.lower() for w in tokens if w not in sw and len(w) > 2 and w.isalpha()]
+        # tokens = [lemma.lemmatize(word) for word in tokens]
         
         return tokens
     
@@ -79,19 +79,21 @@ class TwitterDataCollecion(object):
      
         with open(filename, 'a') as f:
             for tweet in tweets:
-                t = self.clean_tweet(tweet._json["text"])
+                # t = self.clean_tweet(tweet._json["text"])
+                t = tweet._json["text"]
                 t = str(t.encode("ascii", "ignore"))
-                f.write(t[2:-1])
+                # index = t.find(':')
+                f.write(t[t.find(':')+2:-1])
                 f.write("\n")
 
 def main():
-    query = "FakeNews"
+    query = "fakenews"
     print("Collecting tweets for "+ query)
     today = date.today().strftime("%d%m%y")
     maxtweets = 5000
-    twitterclass = TwitterDataCollecion(query,maxtweets)
+    twitterclass = TwitterDataCollecion(query,5000)
     tweets=twitterclass.search_tweet()
-    twitterclass.write_tweets(tweets, "tweets/tweetsdata"+today+".txt")
+    twitterclass.write_tweets(tweets, "textcorpus/tweetsdata"+"-"+query+"-"+today+".txt")
     print("Twitter Data is ready for further analysis")
     
 if __name__ == '__main__':
