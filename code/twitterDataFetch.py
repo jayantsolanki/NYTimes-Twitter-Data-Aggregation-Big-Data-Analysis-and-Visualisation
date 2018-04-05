@@ -16,10 +16,10 @@ class TwitterDataCollecion(object):
     def __init__(self,query,tweetscount):
         
         #Initialize the twitter api connection
-        consumer_key = 'M3uDdeL5NzbjfdBGVtL5r9PZu'
-        consumer_secret = 'yF3yQnM05yuZgVSDKsaMWePs3M93f7XQh6PQHOQazyytvlMzSM'
-        access_token = '417187736-o3vz5smd7Y50QIfPxVpWdKTTA645OwRRDJhfRZBU'
-        access_secret = 'x7IbwZMcIgl29ee5uYbaHfOf5VUQh2e0rkbNFasTjk5Mq'
+        consumer_key = 'xxxx'
+        consumer_secret = 'xxxx'
+        access_token = 'xxxx'
+        access_secret = 'xxxx'
          
         auth = OAuthHandler(consumer_key, consumer_secret)
         auth.set_access_token(access_token, access_secret)
