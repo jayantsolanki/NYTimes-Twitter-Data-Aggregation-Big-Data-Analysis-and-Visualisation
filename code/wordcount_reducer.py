@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-
+# -*- coding: utf-8 -*-
 # ---------------------------------------------------------------
 #This reducer code will input a line of text and 
 #    output <word, total-count>
