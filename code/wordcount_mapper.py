@@ -1,4 +1,5 @@
-#!/usr/bin/env python   
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 #the above just indicates to use python to intepret this file
 
 # ---------------------------------------------------------------
