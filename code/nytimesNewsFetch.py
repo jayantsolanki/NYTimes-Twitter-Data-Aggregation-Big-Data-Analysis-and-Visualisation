@@ -1,5 +1,5 @@
 
-# coding: utf-8
+# -*- coding: utf-8 -*-
 
 # <span style="color:red;font-weight:bold">Jayant Solanki</span>
 # <hr/>
@@ -24,11 +24,11 @@ import json
 
 
 # Each API keys can provide 10000 response hits
-topic = "south+china+sea"#topic to be looked for
+topic = "trade war"#topic to be looked for
 apikey = "527c18ffc4e648cb936f582a0e264ff1"
 fl = "snippet,web_url"#selective attributes of json response
 pageNo = "0"#initial page is 0, articles fetched using api are grouped in 10 per page starting 0 and upto page 100
-dateRange = ["20180321", "20180322", "20180323", "20180324", "20180325", "20180326", "20180327", "20180328"]# can be changed t any period
+dateRange = ["20180331", "20180401", "20180402", "20180403", "20180404", "20180405", "20180406", "20180407"]# can be changed t any period
 
 
 # In[4]:
@@ -108,13 +108,14 @@ for i in range(0,7):
 #             print(processArticles)
 #             print(processArticles[0])
 #             break
-        with open("textcorpus/"+topic+dateRange[i]+".txt", 'w') as outfile:#used for storing snippets
+        with open("FinalData/"+topic+dateRange[i]+".txt", 'w') as outfile:#used for storing snippets
             for item in processArticles:
                 for articles in item:
 #                     print(articles)
-                    outfile.write(articles["snippet"])
+		    dta = str(articles["snippet"].encode("ascii", "ignore"))
+                    outfile.write(dta)
                     outfile.write("\n")
-        with open("textcorpus/"+topic+dateRange[i]+"-full.txt", 'w') as outfile:#used for storing full articles
+        with open("FinalData/"+topic+dateRange[i]+"-full.txt", 'w') as outfile:#used for storing full articles
             for item in processArticles:
                 for articles in item:
                     fullpage = requests.get(articles["web_url"])
