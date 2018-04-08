@@ -24,11 +24,11 @@ import json
 
 
 # Each API keys can provide 10000 response hits
-topic = "south+china+sea"#topic to be looked for
+topic = "trade+war"#topic to be looked for
 apikey = "527c18ffc4e648cb936f582a0e264ff1"
 fl = "snippet,web_url"#selective attributes of json response
 pageNo = "0"#initial page is 0, articles fetched using api are grouped in 10 per page starting 0 and upto page 100
-dateRange = ["20180321", "20180322", "20180323", "20180324", "20180325", "20180326", "20180327", "20180328"]# can be changed t any period
+dateRange = ["20180331", "20180401", "20180402", "20180403", "20180404", "20180405", "20180406", "20180407"]# can be changed t any period
 
 
 # In[4]:
