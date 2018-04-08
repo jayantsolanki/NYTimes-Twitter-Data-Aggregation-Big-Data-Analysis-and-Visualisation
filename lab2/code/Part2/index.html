@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <base href="/" />
+    <title>My Word Cloud</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimal-ui" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="yes" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional Bootstrap theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.4.11/d3.min.js"></script>
+    <script src="script/d3.layout.cloud.js"></script>
+    <script src="script/d3visualise.js"></script>
+    <style type="text/css">
+      #cloud
+      {
+         width:250px; /* or whatever width you want. */
+         max-width:250px; /* or whatever width you want. */
+         display: inline-block;
+      }
+    </style>
+
+  </head>
+
+  <body>
+    <div class="container col-md-6 col-md-offset-3">
+      <h2>Word Cloud Generator</h2>
+      <div class="row">
+          <div class="panel panel-default">
+            <div class="panel-heading">NyTimes Word Cloud for single day</div>
+            <div class="panel-body">
+              <div class ="form-group">
+                <select name="nytimessingleday" class="form-control" id="nytimessingleday">
+                  <option value="tradewar">Trade War</option>
+                  <option value="guncrime">Gun Crime</option>
+                  <option value="cambridgeanalytica">Cambridge Analytica</option>
+                  <option value="donaldtrump">Donald Trump</option>
+                  <option value="southchinasea">South China Sea</option>
+                </select>
+                <br>
+                <input type="text" class="form-control" id="nytimessingledayCount" value="10">
+                <br>
+                <button id="button5" class="btn btn-success">Draw Cloud</button>
+                <hr>
+              </div>
+              <div id = "cloud5" class="col-md-12"><!--Column left--></div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="panel panel-default">
+            <div class="panel-heading">Twitter Word Cloud for single day</div>
+            <div class="panel-body">
+              <div class ="form-group">
+                <select name="twitsingleday" class="form-control" id="twitsingleday">
+                  <option value="tradewar">Trade War</option>
+                  <option value="guncrime">Gun Crime</option>
+                  <option value="cambridgeanalytica">Cambridge Analytica</option>
+                  <option value="donaldtrump">Donald Trump</option>
+                  <option value="southchinasea">South China Sea</option>
+                </select>
+                <br>
+                <input type="text" class="form-control" id="twitsingledayCount" value="10">
+                <br>
+                <button id="button6" class="btn btn-success">Draw Cloud</button>
+                <hr>
+              </div>
+              <div id = "cloud6" class="col-md-12"><!--Column left--></div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="panel panel-default">
+            <div class="panel-heading">NyTimes Word Cloud for One week data</div>
+            <div class="panel-body">
+              <div class ="form-group">
+                <select name="nytimessingle" class="form-control" id="nytimessingle">
+                  <option value="tradewar">Trade War</option>
+                  <option value="guncrime">Gun Crime</option>
+                  <option value="cambridgeanalytica">Cambridge Analytica</option>
+                  <option value="donaldtrump">Donald Trump</option>
+                  <option value="southchinasea">South China Sea</option>
+                </select>
+                <br>
+                <input type="text" class="form-control" id="nytimessingleCount" value="10">
+                <br>
+                <button id="button1" class="btn btn-success">Draw Cloud</button>
+                <hr>
+              </div>
+              <div id = "cloud1" class="col-md-12"><!--Column left--></div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="panel panel-default">
+            <div class="panel-heading">Twitter Word Cloud for One week data</div>
+            <div class="panel-body">
+              <div class ="form-group">
+                <select name="twitsingle" class="form-control" id="twitsingle">
+                  <option value="tradewar">Trade War</option>
+                  <option value="guncrime">Gun Crime</option>
+                  <option value="cambridgeanalytica">Cambridge Analytica</option>
+                  <option value="donaldtrump">Donald Trump</option>
+                  <option value="southchinasea">South China Sea</option>
+                </select>
+                <br>
+                <input type="text" class="form-control" id="twitsingleCount" value="10">
+                <br>
+                <button id="button2" class="btn btn-success">Draw Cloud</button>
+                <hr>
+              </div>
+              <div id = "cloud2" class="col-md-12"><!--Column left--></div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="panel panel-default">
+            <div class="panel-heading">NyTimes Word co-occurrence Cloud for 1st April</div>
+            <div class="panel-body">
+              <div class ="form-group">
+                <select name="nytimesco" class="form-control" id="nytimesco">
+                  <option value="tradewar">Trade War</option>
+                  <option value="guncrime">Gun Crime</option>
+                  <option value="cambridgeanalytica">Cambridge Analytica</option>
+                  <option value="donaldtrump">Donald Trump</option>
+                  <option value="southchinasea">South China Sea</option>
+                </select>
+                <br>
+                <input type="text" class="form-control" id="nytimescoCount" value="10">
+                <br>
+                <button id="button3" class="btn btn-success">Draw Cloud</button>
+                <hr>
+              </div>
+              <div id = "cloud3" class="col-md-12"><!--Column left--></div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="panel panel-default">
+            <div class="panel-heading">Twitter Word co-occurrence Cloud for 1st April</div>
+            <div class="panel-body">
+              <div class ="form-group">
+                <select name="twitco" class="form-control" id="twitco">
+                  <option value="tradewar">Trade War</option>
+                  <option value="guncrime">Gun Crime</option>
+                  <option value="cambridgeanalytica">Cambridge Analytica</option>
+                  <option value="donaldtrump">Donald Trump</option>
+                  <option value="southchinasea">South China Sea</option>
+                </select>
+                <br>
+                <input type="text" class="form-control" id="twitcoCount" value="10">
+                <br>
+                <button id="button4" class="btn btn-success">Draw Cloud</button>
+                <hr>
+              </div>
+              <div id = "cloud4" class="col-md-12"><!--Column left--></div>
+            </div>
+          </div>
+        </div>        
+    </div>
+
+  </body>  
+</html>
