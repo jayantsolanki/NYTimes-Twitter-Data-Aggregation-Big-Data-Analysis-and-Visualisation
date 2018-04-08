@@ -8,6 +8,8 @@
 # ---------------------------------------------------------------
 
 import sys             #a python module with system functions for this OS
+import re
+import string
 from nltk.corpus import stopwords
 stop_word_list = stopwords.words('english')
 #  to quickly test if a word is not a stop word, use a set:
@@ -27,11 +29,11 @@ for line in sys.stdin:
                          #  with string variable, it will strip 
                          #   the carriage return (by default)
     words = line.split()  #split line at blanks (by default), 
-                         #   and return a list of keys
+                         #   and return a list of words
     value = 1
 
     final_words = []
-    for word in words:     #a for loop through the list of keys
+    for word in words:     #a for loop through the list of words
         word=word.strip('"')
         word=word.strip('.')
         word=word.strip('“')
@@ -40,10 +42,16 @@ for line in sys.stdin:
         word=word.strip(',')
         word=word.strip(')')
         word=word.strip('(')
+        word=word.strip(' ')
+        word   = re.sub(r'\$\w*', '', word)
+        word   = re.sub(r'http?:.*$', '', word)
+        word   = re.sub(r'https?:.*$', '', word)
+        word   = re.sub(r'pic?.*\/\w*', '', word)
+        word   = re.sub(r'[' + string.punctuation + ']+', ' ', word)
         word=str.replace(word,'\'s','')
         word=str.replace(word,'\\','')
         word=str.replace(word,'s\'','')
-        if(word[:1].isdigit() or word[:1]=='$' or word[:1]=='&'):
+        if(word[:1].isdigit() or word[:1]=='$' or word[:1]=='&' or len(word)<=2 or word[:1]=='"' or word[:1]=='\'' or not word.isalpha()):
             continue
         if word.lower() not in stop_word_set:
             final_words.append(word.lower())
