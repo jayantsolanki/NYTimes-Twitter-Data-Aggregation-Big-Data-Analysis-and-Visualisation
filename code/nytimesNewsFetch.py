@@ -1,5 +1,5 @@
 
-# coding: utf-8
+# -*- coding: utf-8 -*-
 
 # <span style="color:red;font-weight:bold">Jayant Solanki</span>
 # <hr/>
@@ -108,13 +108,14 @@ for i in range(0,7):
 #             print(processArticles)
 #             print(processArticles[0])
 #             break
-        with open("textcorpus/"+topic+dateRange[i]+".txt", 'w') as outfile:#used for storing snippets
+        with open("FinalData/"+topic+dateRange[i]+".txt", 'w') as outfile:#used for storing snippets
             for item in processArticles:
                 for articles in item:
 #                     print(articles)
-                    outfile.write(articles["snippet"])
+		    dta = str(articles["snippet"].encode("ascii", "ignore"))
+                    outfile.write(dta)
                     outfile.write("\n")
-        with open("textcorpus/"+topic+dateRange[i]+"-full.txt", 'w') as outfile:#used for storing full articles
+        with open("FinalData/"+topic+dateRange[i]+"-full.txt", 'w') as outfile:#used for storing full articles
             for item in processArticles:
                 for articles in item:
                     fullpage = requests.get(articles["web_url"])

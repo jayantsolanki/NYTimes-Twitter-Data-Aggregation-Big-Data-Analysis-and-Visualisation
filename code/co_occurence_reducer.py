@@ -2,16 +2,17 @@
 # -*- coding: utf-8 -*-
 # ---------------------------------------------------------------
 #This reducer code will input a line of text and 
-#    output <word, total-count>
+#    output <(word,co-occurence_word), total-count>
 # ---------------------------------------------------------------
 import sys
+
 last_key      = None              #initialize these variables
 running_total = 0
 
 # -----------------------------------
 # Loop thru file
 #  --------------------------------
-print( "{0},{1}".format("word","count")) 
+print( "{0}\t{1}".format("(word,co-occurence_word","count")) 
 for input_line in sys.stdin:
     input_line = input_line.strip()
 
@@ -39,12 +40,12 @@ for input_line in sys.stdin:
                                  #   (ie last) key is not empy,
                                  #   then output 
                                  #   the previous <key running-count>
-            print( "{0},{1}".format(last_key, running_total) )
+            print( "{0}\t{1}".format(last_key, running_total) )
                                  # hadoop expects tab(ie '\t') 
                                  #    separation
         running_total = value    #reset values
         last_key = this_key
 
 if last_key == this_key:
-    print( "{0},{1}".format(last_key, running_total)) 
+    print( "{0}\t{1}".format(last_key, running_total)) 
 	

@@ -1,11 +1,13 @@
-#!/usr/bin/env python   
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 #the above just indicates to use python to intepret this file
 
 # ---------------------------------------------------------------
 #This mapper code will input a line of text and output <word, 1>
 # 
 # ---------------------------------------------------------------
-
+import re
+import string
 import sys             #a python module with system functions for this OS
 from nltk.corpus import stopwords
 stop_word_list = stopwords.words('english')
@@ -37,10 +39,16 @@ for line in sys.stdin:
         key=key.strip(',')
         key=key.strip(')')
         key=key.strip('(')
+        key=key.strip(' ')
+        key   = re.sub(r'\$\w*', '', key)
+        key   = re.sub(r'http?:.*$', '', key)
+        key   = re.sub(r'https?:.*$', '', key)
+        key   = re.sub(r'pic?.*\/\w*', '', key)
+        key   = re.sub(r'[' + string.punctuation + ']+', ' ', key)  # Remove puncutations like 's
         key=str.replace(key,'\'s','')
         key=str.replace(key,'\\','')
         key=str.replace(key,'s\'','')
-        if(key[:1].isdigit() or key[:1]=='$' or key[:1]=='&'):
+        if(key[:1].isdigit() or key[:1]=='$' or key[:1]=='&' or len(key)<=2 or key[:1]=='"' or key[:1]=='\'' or not key.isalpha()):
             continue
         if key.lower() not in stop_word_set:
             print('{0}\t{1}'.format(key, value) ) #the {} is replaced by 0th,1st items in format list
