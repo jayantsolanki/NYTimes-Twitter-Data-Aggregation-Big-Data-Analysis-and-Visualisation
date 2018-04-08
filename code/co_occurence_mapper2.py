@@ -59,4 +59,4 @@ for line in sys.stdin:
     if len(final_words):
         count = len(final_words)
         for i in range(count-1):
-            print('{0}\t{1}'.format((final_words[i],final_words[i+1]), value) )
+            print('{0}\t{1}'.format(final_words[i]+'-'+final_words[i+1], value) )
