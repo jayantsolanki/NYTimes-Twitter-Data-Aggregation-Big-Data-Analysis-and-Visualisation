@@ -63,12 +63,7 @@ class TwitterDataCollecion(object):
         # tokens = [lemma.lemmatize(word) for word in tokens]
         
         return tokens
-    
-#    def getCleanedWords(self,lines):
-#        words = []
-#        for line in lines:
-#            words += self.clean_text_and_tokenize(line)
-#        return words 
+
        
     def clean_tweet(self,tweet):
         return " ".join(self.clean_text_and_tokenize(tweet))

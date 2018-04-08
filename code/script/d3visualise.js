@@ -1,5 +1,5 @@
 var wordCount = [];
-    var fontSizeScale = d3.scale.pow().exponent(5).domain([0,1]).range([10, 60]);
+    var fontSizeScale = d3.scale.pow().exponent(5).domain([0,1]).range([10, 70]);
     var color = d3.scale.category10();
     var divSelect = ''
     var numRows = 0;
@@ -56,6 +56,30 @@ var wordCount = [];
                 dataType: 'text',
               }).done(createJSONarray);
           });
+          $("#button5").click(function(){//nytimes single
+            wordCount = [];
+            var optionSelected = $("#nytimessingleday").find(":selected").val();
+            numRows = $("#nytimessingledayCount").val();
+            divSelect = "#cloud5";
+            // alert(numRows)
+            // alert(optionSelected)
+              $.ajax({
+                url: 'nytimes/'+optionSelected+'oneday.csv',
+                dataType: 'text',
+              }).done(createJSONarray);
+          });
+          $("#button6").click(function(){//twitter single
+            wordCount = [];
+            var optionSelected = $("#twitsingleday").find(":selected").val();
+            numRows = $("#twitsingledayCount").val();
+            divSelect = "#cloud6";
+            // alert(numRows)
+            // alert(optionSelected)
+              $.ajax({
+                url: 'twitter/'+optionSelected+'oneday.csv',
+                dataType: 'text',
+              }).done(createJSONarray);
+          });
       });
       function createJSONarray(data) {
 
@@ -86,8 +110,10 @@ var wordCount = [];
           }
 
         } 
-        wordCount.sort(function(a,b) { return parseFloat(b.size) - parseFloat(a.size) } ); 
-        wordCount = wordCount.slice(0,numRows)
+        // wordCount.sort(function(a,b) { return parseFloat(b.size) - parseFloat(a.size) } );
+        JSONsort(wordCount)
+        // console.log(wordCount) 
+        // wordCount = wordCount.slice(0,numRows)
         calculateCloud(wordCount)
       }
       function JSONsort(data){// very crude selection sort
@@ -110,11 +136,11 @@ var wordCount = [];
           data[item] = data[key]
           data[key] = temp
           // sortedWordCount.push(data[key])
-          if(count == 20)
+          if(count == numRows)
             break
 
         }
-        wordCount = data.slice(0,20)
+        wordCount = data.slice(0,numRows)
         // calculateCloud(wordCount)
 
       }
@@ -123,7 +149,7 @@ var wordCount = [];
     function calculateCloud(data) {
       var maxVal = data[0].size
       console.log(data)
-      d3.layout.cloud().size([1000, 400])
+      d3.layout.cloud().size([500, 400])
               .words(data)
               .rotate(0)
               .fontSize(function(d) { return fontSizeScale(d.size/maxVal) })
@@ -136,7 +162,7 @@ var wordCount = [];
       // console.log(words)
       $(divSelect).empty();
         d3.select(divSelect).append("svg")
-                .attr("width", 950)
+                .attr("width", 1050)
                 .attr("height", 450)
                 .attr("class", "wordcloud")
                 .append("g")

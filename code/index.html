@@ -28,11 +28,55 @@
   </head>
 
   <body>
-    <div class="container">
+    <div class="container col-md-6 col-md-offset-3">
       <h2>Word Cloud Generator</h2>
+      <div class="row">
+          <div class="panel panel-default">
+            <div class="panel-heading">NyTimes Word Cloud for 1st April</div>
+            <div class="panel-body">
+              <div class ="form-group">
+                <select name="nytimessingleday" class="form-control" id="nytimessingleday">
+                  <option value="tradewar">Trade War</option>
+                  <option value="guncrime">Gun Crime</option>
+                  <option value="cambridgeanalytica">Cambridge Analytica</option>
+                  <option value="donaldtrump">Donald Trump</option>
+                  <option value="southchinasea">South China Sea</option>
+                </select>
+                <br>
+                <input type="text" class="form-control" id="nytimessingledayCount" value="10">
+                <br>
+                <button id="button5" class="btn btn-success">Draw Cloud</button>
+                <hr>
+              </div>
+              <div id = "cloud5" class="col-md-12"><!--Column left--></div>
+            </div>
+          </div>
+        </div>
         <div class="row">
           <div class="panel panel-default">
-            <div class="panel-heading">NyTimes Word Cloud</div>
+            <div class="panel-heading">Twitter Word Cloud for 1st April</div>
+            <div class="panel-body">
+              <div class ="form-group">
+                <select name="twitsingleday" class="form-control" id="twitsingleday">
+                  <option value="tradewar">Trade War</option>
+                  <option value="guncrime">Gun Crime</option>
+                  <option value="cambridgeanalytica">Cambridge Analytica</option>
+                  <option value="donaldtrump">Donald Trump</option>
+                  <option value="southchinasea">South China Sea</option>
+                </select>
+                <br>
+                <input type="text" class="form-control" id="twitsingledayCount" value="10">
+                <br>
+                <button id="button6" class="btn btn-success">Draw Cloud</button>
+                <hr>
+              </div>
+              <div id = "cloud6" class="col-md-12"><!--Column left--></div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="panel panel-default">
+            <div class="panel-heading">NyTimes Word Cloud for One week data</div>
             <div class="panel-body">
               <div class ="form-group">
                 <select name="nytimessingle" class="form-control" id="nytimessingle">
@@ -54,7 +98,7 @@
         </div>
         <div class="row">
           <div class="panel panel-default">
-            <div class="panel-heading">Twitter Word Cloud</div>
+            <div class="panel-heading">Twitter Word Cloud for One week data</div>
             <div class="panel-body">
               <div class ="form-group">
                 <select name="twitsingle" class="form-control" id="twitsingle">
@@ -76,7 +120,7 @@
         </div>
         <div class="row">
           <div class="panel panel-default">
-            <div class="panel-heading">NyTimes Word co-occurrence Cloud</div>
+            <div class="panel-heading">NyTimes Word co-occurrence Cloud for 1st April</div>
             <div class="panel-body">
               <div class ="form-group">
                 <select name="nytimesco" class="form-control" id="nytimesco">
@@ -98,7 +142,7 @@
         </div>
         <div class="row">
           <div class="panel panel-default">
-            <div class="panel-heading">Twitter Word co-occurrence Cloud</div>
+            <div class="panel-heading">Twitter Word co-occurrence Cloud for 1st April</div>
             <div class="panel-body">
               <div class ="form-group">
                 <select name="twitco" class="form-control" id="twitco">
