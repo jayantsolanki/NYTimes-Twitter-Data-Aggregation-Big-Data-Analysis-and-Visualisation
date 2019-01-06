@@ -18,7 +18,7 @@ b. We then collected the data in the textcorpus folder and applied mapreduce to 
 c. The csv files then generated were used in the d3js visualization.
 
 #### Overall Workflow
-<img src="https://github.com/jayantsolanki/NYTimes-Twitter-Data-Aggregation-Big-Data-Analysis-and-Visualisation/blob/master/report/images/flow.png" width=50% height=50%>
+<img src="https://github.com/jayantsolanki/NYTimes-Twitter-Data-Aggregation-Big-Data-Analysis-and-Visualisation/blob/master/report/images/flow.png" width=80% height=80%>
 
 #### Word Cloud
 <img src="https://github.com/jayantsolanki/NYTimes-Twitter-Data-Aggregation-Big-Data-Analysis-and-Visualisation/blob/master/report/images/imageedit_1_6249841619.png" width=50% height=50%>
