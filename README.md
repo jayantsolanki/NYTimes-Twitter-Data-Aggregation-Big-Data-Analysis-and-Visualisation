@@ -31,6 +31,9 @@ c. The csv files then generated were used in the d3js visualization.
 ***
 * [**report**](https://github.com/jayantsolanki/NYTimes-Data-Aggregation-Big-Data-Analysis-and-Visualisation/tree/master/report) contains summary report detailing our implementation and results.
 * [**codes**](https://github.com/jayantsolanki/NYTimes-Data-Aggregation-Big-Data-Analysis-and-Visualisation/tree/master/code)  contains the source code in python and ipython notebook
+  1. Part1: Contains the data and the script files for the Lab1 chapter-wise (CH3,CH4,CH5 subfolders in it)
+  2. Part2 : Contains the data and the script files for the Lab2 Nytimes and twitter folder contains the final csv files which are being
+used for the web visualization. Input,output,output_co folders are used to store the text files which can be used further to perform the map-reduce operation.
 
 ## SOFTWARE/HARDWARE USED
 * Anaconda
